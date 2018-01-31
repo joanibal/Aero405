@@ -4,74 +4,40 @@ import matplotlib.pyplot as plt
 
 
 
-def getData(filename):
-    """
-    Parameters
-    ----------
-    filename    :   string
-                    name of data file
+# def getData(filename):
+#     """
+#     Parameters
+#     ----------
+#     filename    :   string
+#                     name of data file
 
 
-    Outputs
-    -------
-    port:     :   ndarray
-                    Angles of attack for each data point
-    voltage:    :   ndarray
-                    voltages for each data point              
-    """    
+#     Outputs
+#     -------
+#     port:     :   ndarray
+#                     Angles of attack for each data point
+#     voltage:    :   ndarray
+#                     voltages for each data point              
+#     """    
 
-    # Open file and read in
-    f = open(filename, 'r')
-    flines = f.readlines()
-
-
-    # # Initialize
-    port = []
-    voltage = []
-
-    # Read data
-    for i in range(21,len(flines) - 1): 
-        words = string.split(flines[i])
-        # print i, words 
-        port.append(float(words[0]) + 1)
-        voltage.append(float(words[1]))
-
-    return np.array(port), np.array(voltage)
+#     # Open file and read in
+#     f = open(filename, 'r')
+#     flines = f.readlines()
 
 
+#     # # Initialize
+#     port = []
+#     voltage = []
 
-for i in xrange(0,20,2):
-	file = '0_' + str(i) +  '_prop.dat'
-	port, voltage =  getData(file)
+#     # Read data
+#     for i in range(21,len(flines) - 1): 
+#         words = string.split(flines[i])
+#         # print i, words 
+#         port.append(float(words[0]) + 1)
+#         voltage.append(float(words[1]))
 
-	plt.plot(port, voltage)
+#     return np.array(port), np.array(voltage)
 
-plt.show()
-
-for i in xrange(0,20,2):
-	file = '30_' + str(i) +  '_noprop.dat'
-	port, voltage =  getData(file)
-
-	plt.plot(port, voltage,'--o')
-
-plt.show()
-# with open('405_cali_data.csv', 'rb') as csvfile:
-# 	reader = csv.reader(csvfile)
-# 	print dir(reader)
-# 	for count, row in eunumerate(reader):
-# 		print row
-
-
-# 	# idx = 0
-# 	# for j in range(0,3):
-# 	# 	for i in range(1+idx,4+idx):
-# 	# 		print np.array(reader[i])
-
-
-# 	# 		# for row in reader[:
-# 	# 		# 	print row
-# 	# 			# print ' '.join(row)
-# 	# 	idx +=5	
 
 W1 = np.array([0.75, 1.75, 2.75, 3.75])
 W2 = np.array([0.75, 1.75, 2.75, 3.75])
@@ -124,10 +90,10 @@ def getForcesMoments(V):
 	returns the output forces based on the calibation curves
 	'''
 	W = invK*(V-E)
-	print W
+	# print W
 	return  float(-1*W[0] - 1*W[1]), float(W[2]), float(a*W[0] - b*W[1])
 
-def getForcesMomentsPropON(V, T):
+def getForcesMomentsPropON(V, T, alpha):
 	'''
 	returns the output forces based on the calibation curves
 	'''
@@ -135,7 +101,7 @@ def getForcesMomentsPropON(V, T):
 	return  invK*(V-E)
 
 
-print getForcesMoments(np.matrix([[0.012], [-0.131], [-0.308]]))
-print getForcesMoments(np.matrix([[-.99], [-0.121], [-0.41]]))
+# print getForcesMoments(np.matrix([[0.012], [-0.131], [-0.308]]))
+# print getForcesMoments(np.matrix([[-.99], [-0.121], [-0.41]]))
 
 

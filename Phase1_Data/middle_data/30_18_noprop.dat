@@ -1,0 +1,38 @@
+LabVIEW Measurement	
+Writer_Version	0.92
+Reader_Version	1
+Separator	Tab
+Multi_Headings	Yes
+X_Columns	Multi
+Time_Pref	Relative
+Operator	don geister
+Date	1903/12/31
+Time	19:00:00
+***End_of_Header***	
+	
+Channels	1	
+Samples	16	
+Date	2018/01/28	
+Time	15:55:35.014999	
+X_Dimension	Time	
+X0	0.0000000000000000E+0	
+Delta_X	1.000000	
+***End_of_Header***		
+X_Value		Comment
+0.000000	-0.221403
+1.000000	-0.706805
+2.000000	-0.679459
+3.000000	-0.733669
+4.000000	-0.708715
+5.000000	-0.724487
+6.000000	-0.580644
+7.000000	-0.534027
+8.000000	-0.549810
+9.000000	-0.538925
+10.000000	-0.501662
+11.000000	-0.459238
+12.000000	-0.435441
+13.000000	-0.408963
+14.000000	-0.524016
+15.000000	-0.437071
+

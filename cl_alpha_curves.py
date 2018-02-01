@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from dataProcessing import getForcesMoments
 
+font = {'family': 'Times New Roman'}
+
+plt.rc('font', **font)
+
 data = {}
 
 tunnel_V = 10.64 # m/s
@@ -100,18 +104,17 @@ legend = []
 for key in data[300][2300].keys():
 
     plt.figure(1)
-    # plt.plot(data[300][2300][key]['Alpha'], data[300][2300]
-    #          [key]['CL'] - data[0][2300][key]['CL'], '-o')
     plt.errorbar(data[300][2300][key]['Alpha'], data[300][2300][key]['CL'] - data[0][2300][key]['CL'],  yerr=[data[300][2300][key]['CL Low Error'], data[300][2300][key]['CL High Error']], fmt='-o' )
 
     plt.figure(2)
     plt.errorbar(data[300][2300][key]['Alpha'], data[300][2300][key]['CD'] - data[0][2300][key]['CD'],  yerr=[data[300][2300][key]['CD Low Error'], data[300][2300][key]['CD High Error']], fmt='-o' )
 
-    # plt.plot(data[300][2300][key]['Alpha'], data[300][2300]
-    #          [key]['CD'] - data[0][2300][key]['CD'], '-o')
 
     legend.append(str(key)+ '" Prop Height')
-    # print key
+    print(key)
+    # print(data[300][2300][key]['CL'])data[300][2300][key]['CL'] - data[0][2300][key]['CL']
+    print(np.max(data[300][2300][key]['CL'] - data[0][2300][key]['CL']))
+
 
 legend.append('No Prop')
 plt.figure(1)
@@ -134,7 +137,24 @@ plt.savefig('Figures/CD_Alpha.png',    bbox_inches='tight')
 
 
 
-plt.show()
+# plt.show()
 
+
+
+
+alpha_xfoil = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 18])
+CL_xfoil = np.array([0.2691, 0.4268, 0.5201, 0.6143, 0.7078, 0.8008, 0.8911, 0.973, 1.0413, 1.1025, 1.1951, 1.2297, 1.233, 1.2118, 1.1486, 0.855])
+
+
+plt.figure(3)
+plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CL'],  yerr=[data[300][0][0]['CL Low Error'], data[300][0][0]['CL High Error']], fmt='k-o' )
+plt.plot(alpha_xfoil, CL_xfoil, 'r-o')
+plt.legend(legend)
+plt.xlabel('Angle of Attack [Deg]', fontweight='bold')
+plt.ylabel('Coefficient of Lift', fontweight='bold')
+plt.savefig('Figures/CL_Alpha_xfoil.png',     bbox_inches='tight')
+
+
+plt.show()
 print('Done')
 

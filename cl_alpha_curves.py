@@ -18,7 +18,7 @@ for tunnel in np.array([0 ,300]):
     data[tunnel] = {}
     for prop in np.array([0 , 2300]):
         data[tunnel][prop] = {}
-        for height in xrange(-1, 2):
+        for height in range(-1, 2):
             
             try:
                 
@@ -119,15 +119,15 @@ for key in data[300][2300].keys():
 legend.append('No Prop')
 plt.figure(1)
 # plt.plot(data[300][0][0]['Alpha'], data[300][0][0]['CL'], 'k-o')
-plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CL'],  yerr=[data[300][0][0]['CL Low Error'], data[300][0][0]['CL High Error']], fmt='k-o' )
-plt.legend(legend)
+#plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CL'],  yerr=[data[300][0][0]['CL Low Error'], data[300][0][0]['CL High Error']])
+#plt.legend(legend)
 plt.xlabel('Angle of Attack [Deg]', fontweight='bold')
 plt.ylabel('Coefficient of Lift', fontweight='bold')
 plt.savefig('Figures/CL_Alpha.png',     bbox_inches='tight')
 
 
 plt.figure(2)
-plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CD'],  yerr=[data[300][0][0]['CD Low Error'], data[300][0][0]['CD High Error']], fmt='k-o' )
+#plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CD'],  yerr=[data[300][0][0]['CD Low Error'], data[300][0][0]['CD High Error']]))
 
 # plt.plot(data[300][0][0]['Alpha'], data[300][0][0]['CD'], 'k-o')
 plt.legend(legend)
@@ -147,9 +147,9 @@ CL_xfoil = np.array([0.2691, 0.4268, 0.5201, 0.6143, 0.7078, 0.8008, 0.8911, 0.9
 
 
 plt.figure(3)
-plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CL'],  yerr=[data[300][0][0]['CL Low Error'], data[300][0][0]['CL High Error']], fmt='k-o' )
-plt.plot(alpha_xfoil, CL_xfoil, 'r-o')
-plt.legend(legend)
+#plt.errorbar(data[300][0][0]['Alpha'], data[300][0][0]['CL'],  yerr=[data[300][0][0]['CL Low Error'], data[300][0][0]['CL High Error']], 'ko' )
+plt.plot(alpha_xfoil, CL_xfoil, 'ro')
+#plt.legend(legend)
 plt.xlabel('Angle of Attack [Deg]', fontweight='bold')
 plt.ylabel('Coefficient of Lift', fontweight='bold')
 plt.savefig('Figures/CL_Alpha_xfoil.png',     bbox_inches='tight')

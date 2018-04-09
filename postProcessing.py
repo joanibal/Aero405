@@ -68,9 +68,11 @@ def process(p_dyn, Sref, data, calib, prop):
         Lrod = 0.0234704
         Drod = 0.12889971
         Mrod = 0.00722212
-        L = L - (Lprop-Lrod)
-        D = D - (Dprop-Drod)
-        M = M - (Mprop-Mrod)
+
+        for i in range (0,len(alpha)):
+            L[i] = L[i] - (Lprop[i]-Lrod)
+            D[i] = D[i] - (Dprop[i]-Drod)
+            M[i] = M[i] - (Mprop[i]-Mrod)
 
     # Non-dimensionalize into coefficients
     CL = L * 4.44822 / (0.5 * tunnel_density * tunnel_V**2 * Sref)

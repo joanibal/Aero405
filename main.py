@@ -82,7 +82,8 @@ plt.ylim((0,2.5))
 plt.xlim((0,30))
 plt.title('Clean Wing',fontsize=fsize)
 plt.xlabel('Angle of Attack (deg)',fontsize=fsize)
-plt.ylabel('$C_L$',fontsize=fsize)
+plt.ylabel('Lift Coefficient',fontsize=fsize)
+plt.text(10,1.75,'Centered propeller best',fontsize=fsize)
 
 #################################
 
@@ -152,7 +153,8 @@ plt.ylim((0,2.5))
 plt.xlim((0,30))
 plt.title('Plain Flapped Wing',fontsize=fsize)
 plt.xlabel('Angle of Attack (deg)',fontsize=fsize)
-plt.ylabel('$C_L$',fontsize=fsize)
+plt.ylabel('Lift Coefficient',fontsize=fsize)
+plt.text(10,2.15,'Under-wing propeller best',fontsize=fsize)
 
 ###########################
 
@@ -217,12 +219,13 @@ calib2 = 'Data/calibration36.csv'
 [alpha2, CL2, CD2, CM2] = process(p_dyn1, Sref1, data2, calib2, prop1)
 plt.plot(alpha1[0:7],0.5*(CL1[0:7]+CL2[0:7]),'k--')
 
-plt.legend(('+0.182c, +0.222D','+0.091c, +0.111D','0, 0','-0.091c, -0.111D','-0.182c, -0.222D','No Propeller'),fontsize=fsize,loc='lower right')
+plt.legend(('+0.182c, +0.222D (Above)','+0.091c, +0.111D (Above)','0, 0 (Centered)','-0.091c, -0.111D (Below)','-0.182c, -0.222D (Below)','No Propeller'),fontsize=fsize,loc='lower right')
 plt.ylim((0,2.5))
 plt.xlim((0,30))
 plt.title('Slotted Flapped Wing',fontsize=fsize)
 plt.xlabel('Angle of Attack (deg)',fontsize=fsize)
-plt.ylabel('$C_L$',fontsize=fsize)
+plt.ylabel('Lift Coefficient',fontsize=fsize)
+plt.text(10,1.6,'Under-wing propeller best',fontsize=fsize)
 
 #########################
 

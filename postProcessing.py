@@ -77,7 +77,7 @@ def process(p_dyn, Sref, data, calib, prop):
     # Non-dimensionalize into coefficients
     CL = L * 4.44822 / (0.5 * tunnel_density * tunnel_V**2 * Sref)
     CD = D * 4.44822 / (0.5 * tunnel_density * tunnel_V**2 * Sref)
-    CM = M * 4.44822 / (0.5 * tunnel_density * tunnel_V**2 * Sref)
+    CM = -M * 4.44822 / (0.5 * tunnel_density * tunnel_V**2 * Sref*0.295)
 
     return alpha, CL, CD, CM
 
